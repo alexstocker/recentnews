@@ -1,0 +1,15 @@
+ul.recentnews_ul {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.recentnews_title {
+    display:block;
+}
+
+.recentnews_readmore {
+    display:block;
+    margin-top: 0.5em;
+    margin-bottom: 1.5em;
+}
