@@ -128,7 +128,7 @@ class Recentnews_Public {
 
 		$output = '<ul class="recentnews_ul">';
 		foreach($posts as $post) {
-			$output .= '<li class="recentnews_li"><span class="recentnews_title">'.$post["post_title"].'</span>';
+			$output .= '<li class="recentnews_li"><h4 class="recentnews_title">'.$post["post_title"].'</h4>';
 			$output .= '<div class="recentnews_excerpt" style="display:none;">';
 			if(!empty($post['post_excerpt'])) {
 				$output .= $post['post_excerpt'];
@@ -136,8 +136,7 @@ class Recentnews_Public {
 				$output .= wp_trim_excerpt( $post['post_content']);
 			}
 			$output .= '<span class="recentnews_readmore">';
-			$output .= '<a href="'. get_permalink($post["ID"]) . '">' . __( 'Continue reading <span class="meta-nav">&rarr;</span>', '' ) . '</a>';
-			//$output .= '<a href="' . get_permalink($post["ID"]). '" >read more</a></span></div>';
+			$output .= '<a href="'. get_permalink($post["ID"]) . '">' . __( 'Continue reading <span class="meta-nav">&rarr;</span>', '' ) . '</a></span>';
 			$output .= '</li>';
 		}
 		$output .= '</ul>';
