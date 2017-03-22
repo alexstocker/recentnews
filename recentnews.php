@@ -16,7 +16,7 @@
  * Plugin Name:       RecentNews ShortCode
  * Plugin URI:        https://alex.stocker.info/category/wordpress/
  * Description:       Enables a shortcode to list recent posts [recentnews /]
- * Version:           1.0.0
+ * Version:           1.0.1
  * Author:            Alexander Stocker
  * Author URI:        https://alex.stocker.info
  * License:           GPL-2.0+
