@@ -83,9 +83,31 @@ class Recentnews_Admin {
 	public function add_action_links($links ) {
 		$settings_link = [
 			'<a href="' . admin_url( 'options-general.php?page=' . $this->plugin_name ) . '">' . __('Settings', $this->plugin_name) . '</a>',
+			/*
+			sprintf(
+				'&hearts; <a href="%s" target="_blank">%s</a>',
+				'https://www.paypal.me/AlexanderStocker',
+				__( 'Donate', 'wp_admin_style' )
+			)
+			*/
 		];
 		return array_merge(  $settings_link, $links );
+	}
 
+	/**
+	 * @param $plugin_meta
+	 * @param $plugin_file
+	 * @return array
+	 */
+	public function add_donate_link( $plugin_meta, $plugin_file ) {
+		if ( strpos( $plugin_file, 'recentnews.php' ) !== false ) {
+			$plugin_meta[ ] = sprintf(
+				'&hearts; <a href="%s" target="_blank">%s</a>',
+				'https://www.paypal.me/AlexanderStocker',
+				__( 'Donate', 'wp_admin_style' )
+			);
+		}
+		return $plugin_meta;
 	}
 
 	/**
@@ -139,5 +161,4 @@ class Recentnews_Admin {
 		$valid['post_count'] = (isset($input['post_count']) && !empty($input['post_count'])) ? $input['post_count'] : 0;
 		return $valid;
 	}
-
 }
