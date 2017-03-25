@@ -10,7 +10,7 @@ Requires at least: 4.0
 
 Tested up to: 4.3.7
 
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 
 License: GPLv2 or later
 
@@ -36,3 +36,29 @@ use Plugin upload backend function
 2. Activate the plugin through the 'Plugins' menu in WordPress
 3. Set default count of posts to display
 4. Add shortcode to a post
+
+== Changelog ==
+
+1.0.2
+
+* Replaced button icon
+* Exclude current post from list
+
+1.0.1
+
+* Changed headline tag from span to h4
+* Added some styling stuff
+
+== Upgrade Notice ==
+
+NONE
+
+== Frequently Asked Questions ==
+
+NONE
+
+== Screenshots ==
+
+1. Insert Shortcode
+2. How many items to show
+3. Working sample

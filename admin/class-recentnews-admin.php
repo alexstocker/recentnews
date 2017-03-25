@@ -72,7 +72,7 @@ class Recentnews_Admin {
 	 * Add Plugin admin menu item
 	 */
 	public function add_plugin_admin_menu() {
-		add_options_page( 'RecentNews ShortCode setup', 'RecentNews', 'manage_options', $this->plugin_name, array($this, 'display_plugin_setup_page')
+		add_options_page( 'RecentNews ShortCode setup', 'RecentNews', 'manage_options', $this->plugin_name, [$this, 'display_plugin_setup_page']
 		);
 	}
 
@@ -81,9 +81,9 @@ class Recentnews_Admin {
 	 * @return array
 	 */
 	public function add_action_links($links ) {
-		$settings_link = array(
+		$settings_link = [
 			'<a href="' . admin_url( 'options-general.php?page=' . $this->plugin_name ) . '">' . __('Settings', $this->plugin_name) . '</a>',
-		);
+		];
 		return array_merge(  $settings_link, $links );
 
 	}
@@ -93,8 +93,8 @@ class Recentnews_Admin {
 	 */
 	public function recentnews_buttons(){
 		if( current_user_can('edit_posts') &&  current_user_can('edit_pages') ) {
-			add_filter( 'mce_external_plugins', array($this, 'recentnews_add_buttons' ));
-			add_filter( 'mce_buttons', array($this, 'recentnews_register_buttons' ));
+			add_filter( 'mce_external_plugins', [$this, 'recentnews_add_buttons' ]);
+			add_filter( 'mce_buttons', [$this, 'recentnews_register_buttons' ]);
 		}
 	}
 
@@ -127,7 +127,7 @@ class Recentnews_Admin {
 	 * Save plugin setup
 	 */
 	public function options_update() {
-		register_setting($this->plugin_name, $this->plugin_name, array($this, 'validate'));
+		register_setting($this->plugin_name, $this->plugin_name, [$this, 'validate']);
 	}
 
 	/**
@@ -135,7 +135,7 @@ class Recentnews_Admin {
 	 * @return array
 	 */
 	public function validate($input) {
-		$valid = array();
+		$valid = [];
 		$valid['post_count'] = (isset($input['post_count']) && !empty($input['post_count'])) ? $input['post_count'] : 0;
 		return $valid;
 	}

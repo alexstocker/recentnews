@@ -173,7 +173,7 @@ class Recentnews {
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
-		add_shortcode( 'recentnews', array( $plugin_public, 'recentnews_shortcode') );
+		add_shortcode( 'recentnews', [ $plugin_public, 'recentnews_shortcode'] );
 	}
 
 	/**

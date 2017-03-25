@@ -73,7 +73,7 @@ class Recentnews_Public {
 		 * class.
 		 */
 
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/recentnews-public.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/recentnews-public.css', [], $this->version, 'all' );
 
 	}
 
@@ -96,7 +96,7 @@ class Recentnews_Public {
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/recentnews-public.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/recentnews-public.js', ['jquery'], $this->version, false );
 
 	}
 
@@ -105,6 +105,9 @@ class Recentnews_Public {
 	 * @return string
 	 */
 	public function recentnews_shortcode($attr = []) {
+		
+		global $wp_query;
+		$post_id = $wp_query->post->ID;
 
 		$options = get_option($this->plugin_name);
 
@@ -114,7 +117,7 @@ class Recentnews_Public {
 			$count = $options['post_count'];
 		}
 
-		$args = array(
+		$args = [
 			'numberposts' => $count,
 			'offset' => 0,
 			'category' => 0,
@@ -122,8 +125,9 @@ class Recentnews_Public {
 			'order' => 'DESC',
 			'post_type' => 'post',
 			'post_status' => 'publish',
+			'exclude' => [$post_id],
 			'suppress_filters' => true
-		);
+		];
 		$posts = wp_get_recent_posts( $args, ARRAY_A );
 
 		$output = '<ul class="recentnews_ul">';

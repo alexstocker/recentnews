@@ -4,10 +4,8 @@
 	(function() {
 		tinymce.PluginManager.add('recentnews_button', function( ed, url ) {
 			ed.addButton( 'recentnews_button', {
-				//text: 'Add recent posts shortcode',
+				text: '[__]',
 				tooltip: 'Add Recent Posts shortcode',
-				image: tinymce.baseURL + '/skins/lightgray/img/anchor.gif',
-				icon: false,
 				onclick: function() {
 					ed.windowManager.open( {
 						title: 'Insert Recent Post shortcode',
